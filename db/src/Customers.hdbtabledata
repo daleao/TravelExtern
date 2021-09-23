@@ -1,0 +1,28 @@
+{
+    "format_version": 1,
+    "imports": [
+        {
+            "target_table": "travel.db::Customers",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "travel.db::Customers.csv",
+                "has_header": true,
+                "type_config": {
+                    "delimiter": ",",
+                    "do_quote": true
+                }
+            },
+            "import_settings": {
+                "import_columns": [
+                    "id",
+                    "name",
+                    "City",
+                    "gender",
+                    "number_of_trips",
+                    "loyalty_member",
+                    "balance"
+                ]
+            }
+        }
+    ]
+}

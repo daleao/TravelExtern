@@ -1,0 +1,4 @@
+VIEW "travel.db::LOYAL_CUSTOMERS" AS
+  SELECT "id", "name", "City", "number_of_trips" as "trips", "balance"
+    FROM "travel.db::Customers"
+    WHERE "loyalty_member" = true

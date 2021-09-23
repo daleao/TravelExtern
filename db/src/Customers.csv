@@ -1,0 +1,7 @@
+id,name,City,gender,number_of_trips,loyalty_member,balance
+1,Jamie,Vancouver,Male,8,false,12.31
+2,Julie,Portland,Female,6,true,23.23
+3,Bob,New York,Male,9,false,34.15
+4,Denys,Den Bosch,Male,4,true,45.99
+5,Philip,Nantes,Male,5,false,56.84
+6,Joe,San Francisco,Male,7,true,67.43

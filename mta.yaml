@@ -1,0 +1,27 @@
+_schema-version: '3.2'
+ID: travel
+version: 0.0.1
+
+modules:
+  # ---------------- DATABASE DEPLOYER MODULE ------------------
+  - name: travel-db-deployer
+  # ------------------------------------------------------------
+    type: hdb
+    path: db
+    parameters:
+      buildpack: nodejs_buildpack
+      memory: 256M
+      disk-quota: 1024M
+    requires:
+      - name: travel-db
+
+resources:
+  # ------------------- HDI CONTAINER SERVICE ------------------
+  - name: travel-db
+  # ------------------------------------------------------------
+    type: com.sap.xs.hdi-container
+    parameters:
+      service: hana
+      service-plan: hdi-shared
+    properties:
+      hdi-service-name: ${service-name}

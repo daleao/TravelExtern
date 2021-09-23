@@ -1,0 +1,10 @@
+COLUMN TABLE "travel.db::Customers" (
+  "id" INTEGER,
+  "name" VARCHAR(30) NOT NULL,
+  "City" NVARCHAR(100),
+  "gender" CHAR(6),
+  "number_of_trips" SMALLINT,
+  "loyalty_member" BOOLEAN DEFAULT false,
+  "balance" NUMERIC(6,2),
+  PRIMARY KEY ("id")
+)
