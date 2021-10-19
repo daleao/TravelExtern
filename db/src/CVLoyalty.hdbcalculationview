@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="travel.db::CVLoyalty" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CVLoyalty.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="travel.db::Customers">
+    <resourceUri>travel.db::Customers</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews/>
+<logicalModel id="travel.db::Customers">
+  <attributes>
+    <attribute id="loyalty_member" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Loyalty Member"/>
+      <keyMapping columnObjectName="Customers" columnName="loyalty_member"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="number_of_trips" order="2" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="Trips"/>
+      <measureMapping columnObjectName="Customers" columnName="number_of_trips"/>
+    </measure>
+    <measure id="balance" order="3" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="Balance"/>
+      <measureMapping columnObjectName="Customers" columnName="balance"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

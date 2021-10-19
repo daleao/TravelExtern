@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="travel.db::CVCustomers" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CVCustomers.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="travel.db::Customers">
+    <resourceUri>travel.db::Customers</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews/>
+<logicalModel id="travel.db::Customers">
+  <attributes>
+    <attribute id="gender" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Gender"/>
+      <keyMapping columnObjectName="Customers" columnName="gender"/>
+    </attribute>
+    <attribute id="name" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Name"/>
+      <keyMapping columnObjectName="Customers" columnName="name"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="balance" order="3" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="Balance"/>
+      <measureMapping columnObjectName="Customers" columnName="balance"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions>
+    <localDimension id="CUSTOMERS">
+      <attributeRef xsi:type="DataFoundation:Attribute">gender</attributeRef>
+      <attributeRef xsi:type="DataFoundation:Attribute">name</attributeRef>
+      <hierarchies>
+        <hierarchy xsi:type="Dimension:LeveledHierarchy" id="CUSTOMERS" aggregateAllNodes="false" orphanedNodesHandling="ROOT_NODES" rootNodeVisibility="ADD_ROOT_NODE" withRootNode="true" nodeStyle="NAME_PATH_ENFORCED" cacheEnabled="true" cycleHandling="BREAKUP" emptyValueIsNull="true">
+          <descriptions defaultDescription="Customers"/>
+          <unassignedMemberProperties mode="FALSE"/>
+          <levels>
+            <level levelAttribute="gender" levelType="MDLEVEL_TYPE_REGULAR" order="1" orderAttribute="gender" sortDirection="ASC"/>
+            <level levelAttribute="name" levelType="MDLEVEL_TYPE_REGULAR" order="2" orderAttribute="name" sortDirection="ASC"/>
+          </levels>
+        </hierarchy>
+      </hierarchies>
+    </localDimension>
+  </localDimensions>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>
