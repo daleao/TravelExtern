@@ -1,6 +1,6 @@
 {
     "role": {
-        "name": "travel.db::EXTERNAL_ACCESS",
+        "name": "travel.extern::EXTERNAL_ACCESS",
         "schema_privileges": [
             {
                 "privileges": [

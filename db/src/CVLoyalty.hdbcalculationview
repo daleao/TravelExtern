@@ -1,30 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="travel.db::CVLoyalty" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="travel.extern::CVLoyalty" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
 <descriptions defaultDescription="CVLoyalty.hdbcalculationview"/>
 <localVariables/>
 <variableMappings/>
 <dataSources>
-  <DataSource id="travel.db::Customers">
-    <resourceUri>travel.db::Customers</resourceUri>
+  <DataSource id="travel.extern::Customers">
+    <resourceUri>travel.extern::Customers</resourceUri>
   </DataSource>
 </dataSources>
+<snapshotProcedures/>
 <calculationViews/>
-<logicalModel id="travel.db::Customers">
+<logicalModel id="travel.extern::Customers">
   <attributes>
-    <attribute id="loyalty_member" order="1" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="IS_LOYALTY_MEMBER" order="1" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="Loyalty Member"/>
-      <keyMapping columnObjectName="Customers" columnName="loyalty_member"/>
+      <keyMapping columnObjectName="Customers" columnName="IS_LOYALTY_MEMBER"/>
     </attribute>
   </attributes>
   <calculatedAttributes/>
   <baseMeasures>
-    <measure id="number_of_trips" order="2" aggregationType="sum" measureType="simple">
+    <measure id="TRIP_COUNT" order="2" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Trips"/>
-      <measureMapping columnObjectName="Customers" columnName="number_of_trips"/>
+      <measureMapping columnObjectName="Customers" columnName="TRIP_COUNT"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
-    <measure id="balance" order="3" aggregationType="sum" measureType="simple">
+    <measure id="BALANCE" order="3" aggregationType="sum" measureType="simple" restrictionExpressionLanguage="SQL">
       <descriptions defaultDescription="Balance"/>
-      <measureMapping columnObjectName="Customers" columnName="balance"/>
+      <measureMapping columnObjectName="Customers" columnName="BALANCE"/>
+    
+      <exceptionAggregationMetadata/>
     </measure>
   </baseMeasures>
   <calculatedMeasures/>

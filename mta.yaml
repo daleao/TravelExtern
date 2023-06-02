@@ -1,10 +1,10 @@
 _schema-version: '3.2'
-ID: travel
+ID: travel-extern
 version: 0.0.1
 
 modules:
   # ---------------- DATABASE DEPLOYER MODULE ------------------
-  - name: travel-db-deployer
+  - name: travel-extern-deployer
   # ------------------------------------------------------------
     type: hdb
     path: db
@@ -13,11 +13,11 @@ modules:
       memory: 256M
       disk-quota: 1024M
     requires:
-      - name: travel-db
+      - name: travel-extern
 
 resources:
   # ------------------- HDI CONTAINER SERVICE ------------------
-  - name: travel-db
+  - name: travel-extern
   # ------------------------------------------------------------
     type: com.sap.xs.hdi-container
     parameters:

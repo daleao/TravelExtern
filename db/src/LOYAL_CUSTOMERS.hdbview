@@ -1,4 +1,4 @@
-VIEW "travel.db::LOYAL_CUSTOMERS" AS
-  SELECT "id", "name", "City", "number_of_trips" as "trips", "balance"
-    FROM "travel.db::Customers"
-    WHERE "loyalty_member" = true
+VIEW "travel.extern::LOYAL_CUSTOMERS" AS
+  SELECT "ID", "NAME", "CITY", "TRIP_COUNT" as "TRIPS", "BALANCE"
+    FROM "travel.extern::Customers"
+    WHERE "IS_LOYALTY_MEMBER" = true

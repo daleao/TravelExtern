@@ -2,10 +2,10 @@
     "format_version": 1,
     "imports": [
         {
-            "target_table": "travel.db::Customers",
+            "target_table": "travel.extern::Customers",
             "source_data": {
                 "data_type": "CSV",
-                "file_name": "travel.db::Customers.csv",
+                "file_name": "travel.extern::Customers.csv",
                 "has_header": true,
                 "type_config": {
                     "delimiter": ",",
@@ -14,13 +14,13 @@
             },
             "import_settings": {
                 "import_columns": [
-                    "id",
-                    "name",
-                    "City",
-                    "gender",
-                    "number_of_trips",
-                    "loyalty_member",
-                    "balance"
+                    "ID",
+                    "NAME",
+                    "CITY",
+                    "GENDER",
+                    "TRIP_COUNT",
+                    "IS_LOYALTY_MEMBER",
+                    "BALANCE"
                 ]
             }
         }
